@@ -56,14 +56,14 @@ Write your narrative below
 
 `3. (2 points)
 ```{r}
-# Load necssary package
-library(dolyr)
+# Load necessary package
+library(dplyr)
 
 #count the frequencies of each species
 species_counts <- seattlepets %>%
   group_by(species) %>%
   summarise(count = n()) %>%
-  arrange (besc(count))
+  arrange(desc(count))
 ```
 Write your narrative here
 
