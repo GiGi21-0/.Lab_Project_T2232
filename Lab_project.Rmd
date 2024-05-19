@@ -4,9 +4,9 @@ date: "`r Sys.Date()`"
 output: github_document
 ---
 
-**Student Name:<insert your name here>**
+**Student Name:<areej>**
 
-**Student ID:<insert ID here>**
+**Student ID:<2221004173>**
 
 
 **Deadline:** 23:59 on Sunday, 19 May 2024
@@ -28,7 +28,15 @@ library(ggrepel)
 
 `1. (2 points)
 ```{r}
+# Load the openintro package 
+library(openintro)
 
+# Loab the seattlepets dataset 
+data("seattlepets")
+
+# Number of pets in the dataset
+num_pets <- nrow(seattlepets)
+num_pets
 ```
 Write your narrative here
 
@@ -38,7 +46,9 @@ Write your narrative here
 `2. (2 points)
 
 ```{r}
-
+# Number of variables in the dataset
+num_variables <- ncol(seattlepets)
+ num_variables
 ```
 Write your narrative below
 
@@ -46,7 +56,14 @@ Write your narrative below
 
 `3. (2 points)
 ```{r}
+# Load necssary package
+library(dolyr)
 
+#count the frequencies of each species
+species_counts <- seattlepets %>%
+  group_by(species) %>%
+  summarise(count = n()) %>%
+  arrange (besc(count))
 ```
 Write your narrative here
 
