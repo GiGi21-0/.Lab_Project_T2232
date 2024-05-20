@@ -138,7 +138,6 @@ theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 #Display the plot
 print(species_plot)
-# v
 ```
 Write your narrative here
 
