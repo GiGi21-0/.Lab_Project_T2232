@@ -64,20 +64,32 @@ species_counts <- seattlepets %>%
   group_by(species) %>%
   summarise(count = n()) %>%
   arrange(desc(count))
+
+species_counts
 ```
 Write your narrative here
 
 
 `4. (2 points)
 ```{r}
+# Count the frequencies of each pet name
+name_counts <- seattlepets %>%
+  group_by(animal_name) %>%
+  summarise(count = n()) %>%
+  arrange(desc(count)) %>%
+  head(10)
 
+name_counts
 ```
 Write your narrative here
 
 
 `5. (2 points)
 ```{r}
-
+# Retrieve and display recorde for species pig sorted by pet name
+pig_records <- seattlepets %>%
+  filter(species == "pig") %>%
+  arrange(animal_name)
 ```
 Write your narrative here
 
