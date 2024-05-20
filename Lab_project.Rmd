@@ -153,12 +153,19 @@ filter(animal_name %in% c( "Lucy"  , "Charlie" , "Luna" , "Bella" , "Max"    ,
 top_10_names
 ```
 `a.	What does the above code chunk do?
-
+This code defines a vector top_10_names that contiains 
+the 10 most common pet names identified in Task 4. This 
+list will be used to filter and analyze the dataset for 
+these specific pet names
 
 
 `b. Plot the counts of the pet names (animal_name) in top_10_names
 ```{r}
-
+ggplot(top_10_names,aes(x = animal_name, fill = species)) +
+  geom_bar() +
+  labs(x = "animal_name",y = "count") +
+  ggtitle("counts of top_pet_names(Top 10)") +
+  theme_minimal()
 ```
 
 
