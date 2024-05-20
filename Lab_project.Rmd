@@ -56,12 +56,12 @@ Write your narrative below
 
 `3. (2 points)
 ```{r}
-# Load necessary package
+# load necessary package
 library(dplyr)
 
-#count the frequencies of each species
+#Count the frequencies of each species
 species_counts <- seattlepets %>%
-  group_by(species) %>%
+ group_by(species) %>%
   summarise(count = n()) %>%
   arrange(desc(count))
 
@@ -86,10 +86,12 @@ Write your narrative here
 
 `5. (2 points)
 ```{r}
-# Retrieve and display recorde for species pig sorted by pet name
-pig_records <- seattlepets %>%
-  filter(species == "pig") %>%
+# Retrieve and display recorde for species pig sorted by pet names
+Pig_records <- seattlepets %>%
+  filter(species == "Pig") %>%
   arrange(animal_name)
+
+Pig_records
 ```
 Write your narrative here
 
@@ -98,7 +100,13 @@ Write your narrative here
 
 `6. (2 points)
 ```{r}
+# Retrieve and display the pet name and primary_breeds for species Goat 
+goat_records <- seattlepets %>%
+  filter(species == "Goat") %>%
+  select(animal_name, primary_breed) %>%
+  arrange(animal_name)
 
+goat_records
 ```
 Write your narrative here
 
@@ -108,7 +116,11 @@ Write your narrative here
 
 `7. (2 points)
 ```{r}
-
+merged_columns <- seattlepets %>% 
+  mutate(pet=paste(animal_name,species,sep = ";")) %>%
+  select(license_number,pet) %>%
+  arrange(pet)
+merged_columns
 ```
 Write your narrative here
 
@@ -116,7 +128,17 @@ Write your narrative here
 
 `8. (2 points)
 ```{r}
+library(ggplot2)
 
+#Create a bar plot of species counts 
+species_plot <- ggplot(seattlepets, aes(x= species)) +
+  geom_bar() +
+  labs(title = "Counts of Species", x = "Species", y = "Count")
+theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+#Display the plot
+print(species_plot)
+# v
 ```
 Write your narrative here
 
